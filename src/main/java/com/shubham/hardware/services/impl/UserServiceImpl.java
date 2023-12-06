@@ -2,6 +2,7 @@ package com.shubham.hardware.services.impl;
 
 import com.shubham.hardware.dtos.UserDto;
 import com.shubham.hardware.entities.User;
+import com.shubham.hardware.exceptions.ResourceNotFoundException;
 import com.shubham.hardware.repo.UserRepository;
 import com.shubham.hardware.services.UserService;
 import org.modelmapper.ModelMapper;
@@ -37,7 +38,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto updateUser(UserDto userDto, String userId) {
-        User user = userRepository.findById(userId).orElseThrow(()->new RuntimeException("User not found exception"));
+        User user = userRepository.findById(userId).orElseThrow(()->new ResourceNotFoundException("User not found exception"));
         user.setName(userDto.getName());
 //        we don't want to update the email
 //        user.setEmail(userDto.getEmail());
@@ -54,7 +55,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(String userId) {
-        User user = userRepository.findById(userId).orElseThrow(()->new RuntimeException("User not found exception"));
+        User user = userRepository.findById(userId).orElseThrow(()->new ResourceNotFoundException("User not found exception"));
 
 //        delete user
         userRepository.delete(user);
@@ -62,14 +63,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto getUserById(String userId) {
-        User user = userRepository.findById(userId).orElseThrow(()->new RuntimeException("User not found exception"));
+        User user = userRepository.findById(userId).orElseThrow(()->new ResourceNotFoundException("User not found"));
         UserDto userById = entityToDto(user);
         return userById;
     }
 
     @Override
     public UserDto getUserByEmail(String email) {
-        User user = userRepository.findByEmail(email).orElseThrow(()->new RuntimeException("User not found with given email"));
+        User user = userRepository.findByEmail(email).orElseThrow(()->new ResourceNotFoundException("User not found with given email"));
         UserDto userDto = entityToDto(user);
         return userDto;
     }
