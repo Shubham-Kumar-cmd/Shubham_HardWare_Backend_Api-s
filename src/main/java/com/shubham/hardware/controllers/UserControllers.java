@@ -3,6 +3,7 @@ package com.shubham.hardware.controllers;
 import com.shubham.hardware.dtos.ApiResponseMessage;
 import com.shubham.hardware.dtos.UserDto;
 import com.shubham.hardware.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,14 +20,14 @@ public class UserControllers {
 
 //    create
     @PostMapping
-    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto){
+    public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto){
         UserDto user = userService.createUser(userDto);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
 //    update
     @PutMapping("/{userId}")
-    public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto,@PathVariable("userId") String id){
+    public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto,@PathVariable("userId") String id){
         UserDto updateUser = userService.updateUser(userDto,id);
         return new ResponseEntity<>(updateUser, HttpStatus.OK);
     }
