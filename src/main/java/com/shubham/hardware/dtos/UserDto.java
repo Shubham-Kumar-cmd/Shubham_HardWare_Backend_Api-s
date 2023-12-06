@@ -1,5 +1,6 @@
 package com.shubham.hardware.dtos;
 
+import com.shubham.hardware.validate.ImageNameValid;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
@@ -27,6 +28,8 @@ public class UserDto {
     private String gender;
 
     private String about;
+
+    @ImageNameValid
     private String imageName;
 
 //    pattern
