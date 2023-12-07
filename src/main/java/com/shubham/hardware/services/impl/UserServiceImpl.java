@@ -1,8 +1,10 @@
 package com.shubham.hardware.services.impl;
 
+import com.shubham.hardware.dtos.PageableResponse;
 import com.shubham.hardware.dtos.UserDto;
 import com.shubham.hardware.entities.User;
 import com.shubham.hardware.exceptions.ResourceNotFoundException;
+import com.shubham.hardware.helper.Helper;
 import com.shubham.hardware.repo.UserRepository;
 import com.shubham.hardware.services.UserService;
 import org.modelmapper.ModelMapper;
@@ -80,18 +82,31 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDto> getAllUsers(int pageNumber,int pageSize,String sortBy,String sortDir) {
+    public PageableResponse<UserDto> getAllUsers(int pageNumber, int pageSize, String sortBy, String sortDir) {
 //        ternary operator
         Sort sort = (sortDir.equalsIgnoreCase("desc"))?(Sort.by(sortBy).descending()):(Sort.by(sortBy).ascending());
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
         Page<User> page = userRepository.findAll(pageable);
-        List<User> users = page.getContent();
-//        using stream api
-//        List<UserDto> dtoList = users.stream().map(user -> entityToDto(user)).collect(Collectors.toList());
 
-//        using method reference
-        List<UserDto> dtoList = users.stream().map(this::entityToDto).toList();
-        return dtoList;
+//        List<User> users = page.getContent();
+////        using stream api
+////        List<UserDto> dtoList = users.stream().map(user -> entityToDto(user)).collect(Collectors.toList());
+//
+////        using method reference
+//        List<UserDto> dtoList = users.stream().map(this::entityToDto).toList();
+//
+//        PageableResponse<UserDto> response = new PageableResponse<>();
+//        response.setContent(dtoList);
+//        response.setPageNumber(page.getNumber());
+//        response.setPageSize(page.getSize());
+//        response.setTotalElements(page.getTotalElements());
+//        response.setTotalPages(page.getTotalPages());
+//        response.setLastPage(page.isLast());
+//        return response;
+
+//        Aliter
+        PageableResponse<UserDto> response = Helper.getPageableResponse(page, UserDto.class);
+        return response;
     }
 
     @Override

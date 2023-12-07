@@ -1,5 +1,6 @@
 package com.shubham.hardware.services;
 
+import com.shubham.hardware.dtos.PageableResponse;
 import com.shubham.hardware.dtos.UserDto;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public interface UserService {
     UserDto getUserByEmail(String email);
 
 //    get all users
-    List<UserDto> getAllUsers(int pageNumber,int pageSize,String sortBy,String sortDir);
+    PageableResponse<UserDto> getAllUsers(int pageNumber, int pageSize, String sortBy, String sortDir);
 
 //    search user
     List<UserDto> searchUser(String keyword);
