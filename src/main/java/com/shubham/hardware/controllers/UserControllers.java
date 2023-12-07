@@ -1,15 +1,31 @@
 package com.shubham.hardware.controllers;
 
 import com.shubham.hardware.dtos.ApiResponseMessage;
+import com.shubham.hardware.dtos.ImageResponse;
 import com.shubham.hardware.dtos.PageableResponse;
 import com.shubham.hardware.dtos.UserDto;
+import com.shubham.hardware.services.FileService;
 import com.shubham.hardware.services.UserService;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 @RestController
@@ -18,6 +34,14 @@ public class UserControllers {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private FileService fileService;
+
+    @Value("${user.profile.image.path}")
+    private String imageUploadPath;
+
+    private Logger logger= LoggerFactory.getLogger(UserControllers.class);
 
 //    create
     @PostMapping
@@ -77,5 +101,57 @@ public class UserControllers {
     public ResponseEntity<List<UserDto>> searchUsers(@PathVariable("keyword") String keyword){
         List<UserDto> users= userService.searchUser(keyword);
         return new ResponseEntity<>(users,HttpStatus.OK);
+    }
+
+//    upload user image
+    @PostMapping("/image/{userId}")
+    public ResponseEntity<ImageResponse> uploadUserImage(
+            @RequestParam("imageName") MultipartFile image,
+            @PathVariable("userId") String userId
+            ) throws IOException {
+        String imageName = fileService.uploadFile(image,imageUploadPath);
+
+//        get user by id to update user image
+        UserDto userDto = userService.getUserById(userId);
+
+//        delete user image first before updating user image if exist
+        String imageNameToRemoveFromFolder=userDto.getImageName();
+        logger.info("Image name to remove from folder : {}",imageNameToRemoveFromFolder);
+
+        String fullPathWithImageName=imageUploadPath+imageNameToRemoveFromFolder;// images/users/5a1012eb-fa97-4479-bcca-e5b66d70ef98.png
+        Path path= Paths.get(fullPathWithImageName);
+//        logger.info("Path : {}",path);
+        try {
+            Files.delete(path);
+        } catch (NoSuchFileException e) {
+            logger.info("User image not found in folder!! : {}",e.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+//        update user image
+            userDto.setImageName(imageName);
+            userService.updateUser(userDto, userId);
+        }
+        ImageResponse response = ImageResponse.builder()
+                .imageName(imageName)
+                .message("Image updated successfully!!")
+                .success(true)
+                .status(HttpStatus.CREATED)
+                .build();
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+//    serve user image
+    @GetMapping("/image/{userId}")
+    public void serveUserImage(
+            @PathVariable("userId") String userId,
+            HttpServletResponse response
+            ) throws FileNotFoundException,IOException {
+        UserDto userDto = userService.getUserById(userId);
+        logger.info("User image name : {}",userDto.getImageName());
+        InputStream resource = fileService.getResource(imageUploadPath,userDto.getImageName());
+        response.setContentType(MediaType.IMAGE_JPEG_VALUE);
+        StreamUtils.copy(resource,response.getOutputStream());
     }
 }
