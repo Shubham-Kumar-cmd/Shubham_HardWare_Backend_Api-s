@@ -22,7 +22,7 @@ public interface UserService {
     UserDto getUserByEmail(String email);
 
 //    get all users
-    List<UserDto> getAllUsers();
+    List<UserDto> getAllUsers(int pageNumber,int pageSize,String sortBy,String sortDir);
 
 //    search user
     List<UserDto> searchUser(String keyword);

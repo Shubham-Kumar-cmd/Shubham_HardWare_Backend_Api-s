@@ -52,9 +52,15 @@ public class UserControllers {
     }
 
 //    get all user
+//    http://localhost:8086/shubham-hardware/users?pageNumber=0&pageSize=2&sortBy=[anyAttributeName like name,email,gender]&sortDir=desc
     @GetMapping
-    public ResponseEntity<List<UserDto>> getAllUsers(){
-        List<UserDto> users= userService.getAllUsers();
+    public ResponseEntity<List<UserDto>> getAllUsers(
+            @RequestParam(value = "pageNumber", defaultValue = "0", required = false) int pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize,
+            @RequestParam(value = "sortBy", defaultValue = "name", required = false) String sortBy,
+            @RequestParam(value = "sortDir", defaultValue = "asc", required = false) String sortDir
+            ){
+        List<UserDto> users= userService.getAllUsers(pageNumber,pageSize,sortBy,sortDir);
         return new ResponseEntity<>(users,HttpStatus.OK);
     }
 

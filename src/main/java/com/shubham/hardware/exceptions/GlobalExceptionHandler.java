@@ -3,6 +3,7 @@ package com.shubham.hardware.exceptions;
 import com.shubham.hardware.dtos.ApiResponseMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.mapping.PropertyReferenceException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -50,4 +51,18 @@ public class GlobalExceptionHandler {
         });
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
+
+//    PropertyReferenceException
+//    @ExceptionHandler(PropertyReferenceException.class)
+//    public ResponseEntity<Map<String,Object>> handlePropertyReferenceException(PropertyReferenceException ex){
+//        logger.info("Exception Handler Invoked  : {}",ex.getMessage());
+//        List<ObjectError> allErrors = ex.getBindingResult().getAllErrors();
+//        Map<String, Object> response = new HashMap<>();
+//        allErrors.forEach(objectError -> {
+//            String message = objectError.getDefaultMessage();
+//            String field = ((FieldError)objectError).getField();
+//            response.put(field, message);
+//        });
+//        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+//    }
 }
