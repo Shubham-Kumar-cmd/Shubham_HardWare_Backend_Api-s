@@ -29,7 +29,7 @@ public class UserDto {
 
     private String about;
 
-    @ImageNameValid
+    @ImageNameValid(message = "Image required!!")
     private String imageName;
 
 //    pattern

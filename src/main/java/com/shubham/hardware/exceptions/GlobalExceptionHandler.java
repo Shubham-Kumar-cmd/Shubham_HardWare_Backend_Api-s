@@ -11,6 +11,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.nio.file.InvalidPathException;
 import java.nio.file.NoSuchFileException;
 import java.util.HashMap;
 import java.util.List;
@@ -81,6 +82,18 @@ public class GlobalExceptionHandler {
 //    handler NoSuchFileException
     @ExceptionHandler(NoSuchFileException.class)
     public ResponseEntity<ApiResponseMessage> handlerNoSuchFileException(NoSuchFileException ex){
+        logger.info("Exception Handler Invoked  : {}",ex.getMessage());
+        ApiResponseMessage response=ApiResponseMessage.builder()
+                .message(ex.getMessage())
+                .success(false)
+                .status(HttpStatus.NOT_FOUND)
+                .build();
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
+
+//    handler InvalidPathException
+    @ExceptionHandler(InvalidPathException.class)
+    public ResponseEntity<ApiResponseMessage> handlerInvalidPathException(InvalidPathException ex){
         logger.info("Exception Handler Invoked  : {}",ex.getMessage());
         ApiResponseMessage response=ApiResponseMessage.builder()
                 .message(ex.getMessage())

@@ -97,6 +97,7 @@ public class UserControllers {
     }
 
 //    search user
+//    http://localhost:8086/shubham-hardware/users/search/u
     @GetMapping("/search/{keyword}")
     public ResponseEntity<List<UserDto>> searchUsers(@PathVariable("keyword") String keyword){
         List<UserDto> users= userService.searchUser(keyword);
