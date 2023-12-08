@@ -1,7 +1,6 @@
 package com.shubham.hardware.controllers;
 
 import com.shubham.hardware.dtos.*;
-import com.shubham.hardware.entities.Category;
 import com.shubham.hardware.services.CategoryService;
 import com.shubham.hardware.services.FileService;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,10 +16,8 @@ import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.*;
 import java.util.List;
 
 @RestController
@@ -48,8 +45,8 @@ public class CategoryControllers {
 //    update
     @PutMapping("/{categoryId}")
     public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto categoryDto, @PathVariable("categoryId") String id){
-        CategoryDto updateUser = categoryService.update(categoryDto,id);
-        return new ResponseEntity<>(updateUser, HttpStatus.OK);
+        CategoryDto updateCategory = categoryService.update(categoryDto,id);
+        return new ResponseEntity<>(updateCategory, HttpStatus.OK);
     }
 
 //    delete
@@ -136,12 +133,12 @@ public class CategoryControllers {
 
     //    serve category image
     @GetMapping("/image/{categoryId}")
-    public void serveUserImage(
+    public void serveCategoryImage(
             @PathVariable("categoryId") String id,
             HttpServletResponse response
     ) throws IOException {
         CategoryDto categoryDto = categoryService.getCategoryById(id);
-        logger.info("User image name : {}",categoryDto.getCoverImage());
+        logger.info("Category image name : {}",categoryDto.getCoverImage());
         InputStream resource = fileService.getResource(imagePathFolder,categoryDto.getCoverImage());
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
         StreamUtils.copy(resource,response.getOutputStream());
