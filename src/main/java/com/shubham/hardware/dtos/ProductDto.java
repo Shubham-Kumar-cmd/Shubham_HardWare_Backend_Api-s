@@ -33,4 +33,6 @@ public class ProductDto {
 //    @ImageNameValid(message = "Image required!!")
     private String productImage;
 
+    private CategoryDto category;
+
 }

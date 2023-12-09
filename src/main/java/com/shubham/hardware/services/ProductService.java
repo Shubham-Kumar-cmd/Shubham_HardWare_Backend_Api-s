@@ -25,6 +25,18 @@ public interface ProductService {
     //    get all : Live
     PageableResponse<ProductDto> getAllLive(int pageNumber, int pageSize, String sortBy, String sortDir);
 
+    //    get all : Live
+    PageableResponse<ProductDto> getAllStock(int pageNumber, int pageSize, String sortBy, String sortDir);
+
     //    search
     PageableResponse<ProductDto> getAllProductByTitle(String keyword,int pageNumber, int pageSize, String sortBy, String sortDir);
+
+    //    create product with category
+    ProductDto createProductWithCategory(ProductDto productDto,String categoryId);
+
+    //    assign category to existing product
+    ProductDto addCategoryInsideExistingProduct(String productId,String categoryId);
+
+//    get all product of given category
+    PageableResponse<ProductDto> getAllProductsOfGivenCategory(String categoryId,int pageNumber, int pageSize, String sortBy, String sortDir);
 }

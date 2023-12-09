@@ -3,6 +3,7 @@ package com.shubham.hardware.controllers;
 import com.shubham.hardware.dtos.*;
 import com.shubham.hardware.services.CategoryService;
 import com.shubham.hardware.services.FileService;
+import com.shubham.hardware.services.ProductService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -26,6 +27,9 @@ public class CategoryControllers {
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private ProductService productService;
 
     @Autowired
     private FileService fileService;
@@ -142,6 +146,40 @@ public class CategoryControllers {
         InputStream resource = fileService.getResource(imagePathFolder,categoryDto.getCoverImage());
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
         StreamUtils.copy(resource,response.getOutputStream());
+    }
+
+
+//    create product with category
+    @PostMapping("/{categoryId}/products")
+    public ResponseEntity<ProductDto> createProductWithCategory(
+            @Valid @RequestBody ProductDto productDto,
+            @PathVariable("categoryId") String id
+            ){
+        ProductDto product = productService.createProductWithCategory(productDto,id);
+        return new ResponseEntity<>(product, HttpStatus.CREATED);
+    }
+
+    //    assigning category to existing products
+    @PutMapping("/{categoryId}/products/{productId}")
+    public ResponseEntity<ProductDto> assignCategoryToExistingProduct(
+            @PathVariable("categoryId") String categoryId,
+            @PathVariable("productId") String productId
+    ){
+        ProductDto product = productService.addCategoryInsideExistingProduct(productId,categoryId);
+        return new ResponseEntity<>(product, HttpStatus.CREATED);
+    }
+
+//    get all products to given category
+    @GetMapping("/{categoryId}/products")
+    public ResponseEntity<PageableResponse<ProductDto>> getProductsOfGivenCategory(
+            @PathVariable("categoryId") String categoryId,
+            @RequestParam(value = "pageNumber", defaultValue = "0", required = false) int pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize,
+            @RequestParam(value = "sortBy", defaultValue = "name", required = false) String sortBy,
+            @RequestParam(value = "sortDir", defaultValue = "asc", required = false) String sortDir
+    ){
+        PageableResponse<ProductDto> allProductsOfGivenCategory = productService.getAllProductsOfGivenCategory(categoryId, pageNumber, pageSize, sortBy, sortDir);
+        return new ResponseEntity<>(allProductsOfGivenCategory,HttpStatus.OK);
     }
 }
 

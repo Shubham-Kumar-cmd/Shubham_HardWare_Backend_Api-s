@@ -87,7 +87,7 @@ public class ProductControllers {
     }
 
 //    get all : Live
-//    http://localhost:8086/shubham-hardware/products?pageNumber=0&pageSize=2&sortBy=[anyAttributeName like name,email,gender]&sortDir=desc
+//    http://localhost:8086/shubham-hardware/products/live?pageNumber=0&pageSize=2&sortBy=[anyAttributeName like name,email,gender]&sortDir=desc
     @GetMapping("/live")
     public ResponseEntity<PageableResponse<ProductDto>> getAllLiveProduct(
             @RequestParam(value = "pageNumber", defaultValue = "0", required = false) int pageNumber,
@@ -96,6 +96,19 @@ public class ProductControllers {
             @RequestParam(value = "sortDir", defaultValue = "asc", required = false) String sortDir
     ){
         PageableResponse<ProductDto> response = productService.getAllLive(pageNumber,pageSize,sortBy,sortDir);
+        return new ResponseEntity<>(response,HttpStatus.OK);
+    }
+
+//    get all : Stock
+//    http://localhost:8086/shubham-hardware/products/stock?pageNumber=0&pageSize=2&sortBy=[anyAttributeName like name,email,gender]&sortDir=desc
+    @GetMapping("/stock")
+    public ResponseEntity<PageableResponse<ProductDto>> getAllStockProduct(
+            @RequestParam(value = "pageNumber", defaultValue = "0", required = false) int pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize,
+            @RequestParam(value = "sortBy", defaultValue = "name", required = false) String sortBy,
+            @RequestParam(value = "sortDir", defaultValue = "asc", required = false) String sortDir
+    ){
+        PageableResponse<ProductDto> response = productService.getAllStock(pageNumber,pageSize,sortBy,sortDir);
         return new ResponseEntity<>(response,HttpStatus.OK);
     }
 

@@ -1,10 +1,13 @@
 package com.shubham.hardware.services.impl;
 
+import com.shubham.hardware.dtos.CategoryDto;
 import com.shubham.hardware.dtos.PageableResponse;
 import com.shubham.hardware.dtos.ProductDto;
+import com.shubham.hardware.entities.Category;
 import com.shubham.hardware.entities.Product;
 import com.shubham.hardware.exceptions.ResourceNotFoundException;
 import com.shubham.hardware.helper.Helper;
+import com.shubham.hardware.repo.CategoryRepository;
 import com.shubham.hardware.repo.ProductRepository;
 import com.shubham.hardware.services.ProductService;
 import org.modelmapper.ModelMapper;
@@ -32,6 +35,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -120,11 +126,62 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public PageableResponse<ProductDto> getAllStock(int pageNumber, int pageSize, String sortBy, String sortDir){
+        Sort sort=(sortDir.equalsIgnoreCase("desc"))?(Sort.by(sortBy).descending()):(Sort.by(sortBy).ascending());
+        Pageable pageable= PageRequest.of(pageNumber,pageSize,sort);
+        Page<Product> page = productRepository.findByStockTrue(pageable);
+        PageableResponse<ProductDto> list = Helper.getPageableResponse(page, ProductDto.class);
+        return list;
+    }
+
+    @Override
     public PageableResponse<ProductDto> getAllProductByTitle(String keyword,int pageNumber, int pageSize, String sortBy, String sortDir) {
         Sort sort=(sortDir.equalsIgnoreCase("desc"))?(Sort.by(sortBy).descending()):(Sort.by(sortBy).ascending());
         Pageable pageable= PageRequest.of(pageNumber,pageSize,sort);
         Page<Product> page = productRepository.findByTitleContaining(keyword,pageable);
         PageableResponse<ProductDto> list = Helper.getPageableResponse(page, ProductDto.class);
         return list;
+    }
+
+    @Override
+    public ProductDto createProductWithCategory(ProductDto productDto, String categoryId) {
+        Category category = categoryRepository.findById(categoryId).orElseThrow(()->new ResourceNotFoundException("Category not found with given id!!"));
+        Product product = modelMapper.map(productDto,Product.class);
+
+//        generating product id
+        String productId=UUID.randomUUID().toString();
+        product.setProductId(productId);
+
+//        assigning current date to product
+        product.setAddedDate(new Date());
+
+//        assigning category to the product
+        product.setCategory(category);
+        Product productCreatedWithCategory = productRepository.save(product);
+        return modelMapper.map(productCreatedWithCategory,ProductDto.class);
+    }
+
+    @Override
+    public ProductDto addCategoryInsideExistingProduct(String productId, String categoryId) {
+        Category category = categoryRepository.findById(categoryId).orElseThrow(()->new ResourceNotFoundException("Category not found with given id!!"));
+        Product product = productRepository.findById(productId).orElseThrow(()-> new ResourceNotFoundException("Product not found with given id!!"));
+
+//        assigning category to the product
+        product.setCategory(category);
+        Product productLinkedWithCategory = productRepository.save(product);
+        ProductDto productDto = modelMapper.map(productLinkedWithCategory,ProductDto.class);
+        return productDto;
+    }
+
+    @Override
+    public PageableResponse<ProductDto> getAllProductsOfGivenCategory(String categoryId,int pageNumber, int pageSize, String sortBy, String sortDir) {
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category not found with given id!!"));
+
+        Sort sort=(sortDir.equalsIgnoreCase("desc"))?(Sort.by(sortBy).descending()):(Sort.by(sortBy).ascending()) ;
+        Pageable pageable=PageRequest.of(pageNumber,pageSize,sort);
+
+        Page<Product> page = productRepository.findByCategory(category,pageable);
+        PageableResponse<ProductDto> response = Helper.getPageableResponse(page, ProductDto.class);
+        return response;
     }
 }
