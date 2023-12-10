@@ -16,6 +16,7 @@ import java.nio.file.NoSuchFileException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -94,6 +95,19 @@ public class GlobalExceptionHandler {
 //    handler InvalidPathException
     @ExceptionHandler(InvalidPathException.class)
     public ResponseEntity<ApiResponseMessage> handlerInvalidPathException(InvalidPathException ex){
+        logger.info("Exception Handler Invoked  : {}",ex.getMessage());
+        ApiResponseMessage response=ApiResponseMessage.builder()
+                .message(ex.getMessage())
+                .success(false)
+                .status(HttpStatus.NOT_FOUND)
+                .build();
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
+
+
+//     handler NoSuchElementException
+    @ExceptionHandler(NoSuchElementException.class)
+    public ResponseEntity<ApiResponseMessage> handlerNoSuchElementException(NoSuchElementException ex){
         logger.info("Exception Handler Invoked  : {}",ex.getMessage());
         ApiResponseMessage response=ApiResponseMessage.builder()
                 .message(ex.getMessage())
