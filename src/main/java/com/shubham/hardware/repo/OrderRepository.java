@@ -1,0 +1,13 @@
+package com.shubham.hardware.repo;
+
+import com.shubham.hardware.entities.Order;
+import com.shubham.hardware.entities.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface OrderRepository extends JpaRepository<Order,String> {
+
+    List<Order> findByUser(User user);
+
+}
