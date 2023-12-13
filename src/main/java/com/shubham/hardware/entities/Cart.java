@@ -26,6 +26,6 @@ public class Cart {
     private User user;
 
 //    mapping cart-items
-    @OneToMany(mappedBy = "cart",cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "cart",cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.EAGER)
     private List<CartItem> cartItems=new ArrayList<>();
 }

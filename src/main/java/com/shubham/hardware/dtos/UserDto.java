@@ -1,8 +1,12 @@
 package com.shubham.hardware.dtos;
 
+import com.shubham.hardware.entities.Role;
 import com.shubham.hardware.validate.ImageNameValid;
 import jakarta.validation.constraints.*;
 import lombok.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -31,6 +35,8 @@ public class UserDto {
 
     @ImageNameValid(message = "Image required!!")
     private String imageName;
+
+    private Set<RoleDto> roles=new HashSet<>();
 
 //    pattern
 //    custom validator

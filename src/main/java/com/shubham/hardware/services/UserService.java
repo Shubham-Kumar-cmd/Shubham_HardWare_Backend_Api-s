@@ -30,4 +30,7 @@ public interface UserService {
 
 //    other user specific feature
 
+//    making any user as admin
+    UserDto assignUserAsAdmin(String userId);
+
 }

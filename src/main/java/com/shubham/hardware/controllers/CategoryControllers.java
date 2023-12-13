@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -40,6 +41,7 @@ public class CategoryControllers {
     private Logger logger= LoggerFactory.getLogger(CategoryControllers.class);
 
 //    create
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryDto categoryDto){
         CategoryDto category = categoryService.create(categoryDto);
@@ -47,6 +49,7 @@ public class CategoryControllers {
     }
 
 //    update
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{categoryId}")
     public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto categoryDto, @PathVariable("categoryId") String id){
         CategoryDto updateCategory = categoryService.update(categoryDto,id);
@@ -54,6 +57,7 @@ public class CategoryControllers {
     }
 
 //    delete
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{categoryId}")
     public ResponseEntity<ApiResponseMessage> deleteCategory(@PathVariable("categoryId") String id){
         categoryService.delete(id);
@@ -95,6 +99,7 @@ public class CategoryControllers {
 
 
 //    upload category image
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/image/{categoryId}")
     public ResponseEntity<ImageResponse> uploadCategoryImage(
             @RequestParam("imageName") MultipartFile image,
@@ -150,6 +155,7 @@ public class CategoryControllers {
 
 
 //    create product with category
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/{categoryId}/products")
     public ResponseEntity<ProductDto> createProductWithCategory(
             @Valid @RequestBody ProductDto productDto,
@@ -160,6 +166,7 @@ public class CategoryControllers {
     }
 
     //    assigning category to existing products
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{categoryId}/products/{productId}")
     public ResponseEntity<ProductDto> assignCategoryToExistingProduct(
             @PathVariable("categoryId") String categoryId,

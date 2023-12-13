@@ -155,4 +155,11 @@ public class UserControllers {
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
         StreamUtils.copy(resource,response.getOutputStream());
     }
+
+//    making the user as admin
+    @PutMapping("admin/{userId}")
+    public ResponseEntity<UserDto> makingUserAsAdmin(@PathVariable("userId") String userId){
+        UserDto userDto = userService.assignUserAsAdmin(userId);
+        return new ResponseEntity<>(userDto,HttpStatus.OK);
+    }
 }

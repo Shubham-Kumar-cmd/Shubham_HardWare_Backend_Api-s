@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-    @GetMapping("/shubham-hardware")
+    @GetMapping("/welcome/shubham-hardware")
     public String test(){
         return "Welcome to Shubham Hardware";
     }

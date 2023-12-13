@@ -2,9 +2,11 @@ package com.shubham.hardware.services.impl;
 
 import com.shubham.hardware.dtos.PageableResponse;
 import com.shubham.hardware.dtos.UserDto;
+import com.shubham.hardware.entities.Role;
 import com.shubham.hardware.entities.User;
 import com.shubham.hardware.exceptions.ResourceNotFoundException;
 import com.shubham.hardware.helper.Helper;
+import com.shubham.hardware.repo.RoleRepository;
 import com.shubham.hardware.repo.UserRepository;
 import com.shubham.hardware.services.UserService;
 import org.modelmapper.ModelMapper;
@@ -40,10 +42,20 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private RoleRepository roleRepository;
+
     private Logger logger= LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Value("${user.profile.image.path}")
     private String userImagePath;
+
+    @Value("${admin.role.id}")
+    private String adminRoleId;
+
+    @Value("${normal.role.id}")
+    private String normalRoleId;
+
 
     @Override
     public UserDto createUser(UserDto userDto) {
@@ -56,6 +68,11 @@ public class UserServiceImpl implements UserService {
 
 //        dto-->entity
         User user = dtoToEntity(userDto);
+
+//        fetch role of normal and set it to user
+        Role role = roleRepository.findById(normalRoleId).get();
+        user.getRoles().add(role);
+
         User savedUser = userRepository.save(user);
 //        entity-->dto
         UserDto newDto = entityToDto(savedUser);
@@ -149,6 +166,19 @@ public class UserServiceImpl implements UserService {
 //        using stream api
         List<UserDto> dtoList = users.stream().map(user -> entityToDto(user)).collect(Collectors.toList());
         return dtoList;
+    }
+
+    @Override
+    public UserDto assignUserAsAdmin(String userId) {
+        User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found with given id!!"));
+
+//        assigning admin role to user
+        Role role = roleRepository.findById(adminRoleId).get();
+        user.getRoles().add(role);
+
+        User adminUser = userRepository.save(user);
+        UserDto adminUserDto = modelMapper.map(adminUser, UserDto.class);
+        return adminUserDto;
     }
 
     private User dtoToEntity(UserDto userDto) {
