@@ -27,6 +27,7 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -179,6 +180,12 @@ public class UserServiceImpl implements UserService {
         User adminUser = userRepository.save(user);
         UserDto adminUserDto = modelMapper.map(adminUser, UserDto.class);
         return adminUserDto;
+    }
+
+    @Override
+    public Optional<User> findUserByEmailOptional(String email) {
+        Optional<User> user = userRepository.findByEmail(email);
+        return user;
     }
 
     private User dtoToEntity(UserDto userDto) {

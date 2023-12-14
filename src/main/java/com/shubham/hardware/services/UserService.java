@@ -2,8 +2,10 @@ package com.shubham.hardware.services;
 
 import com.shubham.hardware.dtos.PageableResponse;
 import com.shubham.hardware.dtos.UserDto;
+import com.shubham.hardware.entities.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
 
@@ -32,5 +34,7 @@ public interface UserService {
 
 //    making any user as admin
     UserDto assignUserAsAdmin(String userId);
+
+    Optional<User> findUserByEmailOptional(String email);
 
 }

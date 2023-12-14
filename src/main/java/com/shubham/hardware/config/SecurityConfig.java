@@ -121,7 +121,7 @@ public class SecurityConfig {
                 .cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth->{
                     auth
-                        .requestMatchers("/auth/login")
+                        .requestMatchers("/auth/login","/auth/google")
                         .permitAll()
                         .requestMatchers(HttpMethod.POST,"/shubham-hardware/users")
                         .permitAll()
