@@ -11,6 +11,7 @@ import com.shubham.hardware.entities.User;
 import com.shubham.hardware.exceptions.BadApiRequestException;
 import com.shubham.hardware.security.JwtHelper;
 import com.shubham.hardware.services.UserService;
+import io.swagger.annotations.Api;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +35,14 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin("*")
+@Api(value = "GoogleControllers",description = "Api's for login with Google")
+//@CrossOrigin(
+//        origins = "http://localhost:4200",
+//        allowedHeaders = {"Authorization"},
+//        methods = {RequestMethod.GET,RequestMethod.POST},
+//        allowCredentials = "",
+//        maxAge = 3600
+//        )
 public class GoogleControllers {
 
     @Autowired

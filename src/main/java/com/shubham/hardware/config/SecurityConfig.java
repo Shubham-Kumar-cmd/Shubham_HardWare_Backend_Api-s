@@ -3,6 +3,7 @@ package com.shubham.hardware.config;
 import com.shubham.hardware.security.JwtAuthenticationEntryPoint;
 import com.shubham.hardware.security.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -24,6 +25,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+
+import java.util.Arrays;
 
 @Configuration
 @EnableMethodSecurity(prePostEnabled = true)
@@ -73,10 +79,6 @@ public class SecurityConfig {
         return daoAuthenticationProvider;
     }
 
-    public void authenticationManager(AuthenticationManagerBuilder builder) throws Exception {
-        builder.authenticationProvider(daoAuthenticationProvider()).build();
-    }
-
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration builder) throws Exception {
         return builder.getAuthenticationManager();
@@ -84,7 +86,7 @@ public class SecurityConfig {
 
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 //    form based authentication not required in this project
 //        http
 //                .authorizeHttpRequests()
@@ -118,7 +120,8 @@ public class SecurityConfig {
 //        jwt authentication
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .cors(AbstractHttpConfigurer::disable)
+//                after creating corsFilter() we have to comment out the cors(AbstractHttpConfigurer::disable)
+//                .cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth->{
                     auth
                         .requestMatchers("/auth/login","/auth/google")
@@ -139,6 +142,30 @@ public class SecurityConfig {
                 .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
+    }
+
+//    CORS configuration
+    @Bean
+    public CorsFilter corsFilter(){
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowCredentials(true);
+        configuration.setAllowedOrigins(Arrays.asList("https://domain2.com","http://localhost:3000","http://localhost:8086"));
+//        configuration.addAllowedOriginPattern("*");
+        configuration.setAllowedHeaders(Arrays.asList("Authorization","Content-Type","Accept"));
+//        configuration.addAllowedHeader("Authorization");
+//        configuration.addAllowedHeader("Content-Type");
+//        configuration.addAllowedHeader("Accept");
+        configuration.addAllowedMethod("POST");
+        configuration.addAllowedMethod("GET");
+        configuration.addAllowedMethod("DELETE");
+        configuration.addAllowedMethod("PUT");
+        configuration.addAllowedMethod("OPTIONS");
+        configuration.setMaxAge(3600L);
+
+        source.registerCorsConfiguration("/**",configuration);
+        return new CorsFilter(source);
     }
 
 }
