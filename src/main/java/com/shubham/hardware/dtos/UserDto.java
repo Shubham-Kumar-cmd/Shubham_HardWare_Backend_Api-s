@@ -2,6 +2,7 @@ package com.shubham.hardware.dtos;
 
 import com.shubham.hardware.entities.Role;
 import com.shubham.hardware.validate.ImageNameValid;
+import io.swagger.annotations.ApiModelProperty;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
@@ -17,6 +18,7 @@ public class UserDto {
     private String userId;
 
     @Size(min = 3, max=35, message = "Invalid Name!!")
+    @ApiModelProperty(value = "user_name",name = "username",required = true,notes = "user name of new user")
     private String name;
 
     @Pattern(regexp = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$", message = "Invalid User Email!!")

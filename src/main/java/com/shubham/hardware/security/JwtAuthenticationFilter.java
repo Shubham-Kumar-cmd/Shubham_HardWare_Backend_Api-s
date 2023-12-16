@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
+import org.springframework.util.AntPathMatcher;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
@@ -29,6 +30,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private UserDetailsService userDetailsService;
 
     private Logger logger= LoggerFactory.getLogger(JwtAuthenticationFilter.class);
+
+    //    it is used to avoid filter on certain api's
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        logger.info("ShouldNotFilter : {}",request.getServletPath());
+        return (new AntPathMatcher().match("/swagger-ui/**", request.getServletPath()) || new AntPathMatcher().match("/swagger-ui**", request.getServletPath()) || new AntPathMatcher().match("/v3/api-docs/**", request.getServletPath()) );
+//        return super.shouldNotFilter(request);
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -71,4 +80,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
         filterChain.doFilter(request,response);
     }
+
+
 }

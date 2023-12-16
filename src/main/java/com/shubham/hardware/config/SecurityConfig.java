@@ -28,10 +28,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Arrays;
 
 @Configuration
+@EnableWebMvc
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
@@ -43,6 +46,17 @@ public class SecurityConfig {
 
     @Autowired
     private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+
+    private final String[] PUBLIC_URLS={
+            "/swagger-ui/**",
+            "/webjars/**",
+            "/swagger-resources/**",
+            "/v3/api-docs/**",
+            "/v2/api-docs/**",
+            "/v2/api-docs",
+            "/swagger-ui/index.html**",
+            "/actuator/health"
+    };
 
 //    ctrl+alt+c shortcut to assign in variable
 //    public static final String ADMIN = "ADMIN";
@@ -126,9 +140,17 @@ public class SecurityConfig {
                     auth
                         .requestMatchers("/auth/login","/auth/google")
                         .permitAll()
-                        .requestMatchers(HttpMethod.POST,"/shubham-hardware/users")
-                        .permitAll()
                         .requestMatchers(HttpMethod.GET,"/welcome/shubham-hardware")
+                        .permitAll()
+
+                        .requestMatchers(HttpMethod.GET,"/swagger-ui/index.html","/favicon.ico")
+                        .permitAll()
+
+
+                        .requestMatchers(PUBLIC_URLS)
+                        .permitAll()
+
+                        .requestMatchers(HttpMethod.POST,"/shubham-hardware/users")
                         .permitAll()
 
                         .requestMatchers(HttpMethod.DELETE,"/shubham-hardware/users/**")
@@ -151,7 +173,7 @@ public class SecurityConfig {
 
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowCredentials(true);
-        configuration.setAllowedOrigins(Arrays.asList("https://domain2.com","http://localhost:3000","http://localhost:8086"));
+        configuration.setAllowedOrigins(Arrays.asList("https://domain2.com","http://localhost:3000","http://localhost:8086","http://localhost:4200/"));
 //        configuration.addAllowedOriginPattern("*");
         configuration.setAllowedHeaders(Arrays.asList("Authorization","Content-Type","Accept"));
 //        configuration.addAllowedHeader("Authorization");

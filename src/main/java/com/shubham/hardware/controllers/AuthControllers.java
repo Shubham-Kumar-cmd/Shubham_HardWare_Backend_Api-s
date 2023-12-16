@@ -6,6 +6,7 @@ import com.shubham.hardware.dtos.UserDto;
 import com.shubham.hardware.exceptions.BadApiRequestException;
 import com.shubham.hardware.security.JwtHelper;
 import com.shubham.hardware.services.UserService;
+import io.swagger.annotations.Api;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,7 @@ import java.security.Principal;
 
 @RestController
 @RequestMapping("/auth")
+@Api(value = "AuthController",description = "APIS for login Authentication!!")
 public class AuthControllers {
 
     @Autowired

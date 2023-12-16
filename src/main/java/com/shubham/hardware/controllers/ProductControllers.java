@@ -3,6 +3,7 @@ package com.shubham.hardware.controllers;
 import com.shubham.hardware.dtos.*;
 import com.shubham.hardware.services.FileService;
 import com.shubham.hardware.services.ProductService;
+import io.swagger.annotations.Api;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -28,6 +29,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/shubham-hardware/products")
+@Api(value = "ProductController",description = "REST APIS related to perform product operations!!")
 public class ProductControllers {
 
     @Autowired

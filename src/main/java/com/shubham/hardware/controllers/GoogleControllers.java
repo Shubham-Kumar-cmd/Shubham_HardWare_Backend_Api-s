@@ -35,7 +35,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
-@Api(value = "GoogleControllers",description = "Api's for login with Google")
+@Api(value = "GoogleController",description = "API for login with Google Authentication")
 //@CrossOrigin(
 //        origins = "http://localhost:4200",
 //        allowedHeaders = {"Authorization"},

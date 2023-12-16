@@ -2,6 +2,7 @@ package com.shubham.hardware.controllers;
 
 import com.shubham.hardware.dtos.*;
 import com.shubham.hardware.services.OrderService;
+import io.swagger.annotations.Api;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/shubham-hardware/orders")
+@Api(value = "OrderController",description = "REST APIS related to perform order operations!!")
 public class OrderControllers {
 
     @Autowired
