@@ -38,19 +38,19 @@ public class ShubhamHardwareBackendApplication implements CommandLineRunner {
 //		System.out.println("Password: "+passwordEncoder.encode("kanksha"));
 
 
-//		try {
-//			Role admin = Role.builder()
-//					.roleId(ROLE_ADMIN_ID)
-//					.roleName("ROLE_ADMIN")
-//					.build();
-//			Role normal = Role.builder()
-//					.roleId(ROLE_NORMAL_ID)
-//					.roleName("ROLE_NORMAL")
-//					.build();
-//			roleRepository.save(admin);
-//			roleRepository.save(normal);
-//		}catch (Exception e){
-//			e.printStackTrace();
-//		}
+		try {
+			Role admin = Role.builder()
+					.roleId(ROLE_ADMIN_ID)
+					.roleName("ROLE_ADMIN")
+					.build();
+			Role normal = Role.builder()
+					.roleId(ROLE_NORMAL_ID)
+					.roleName("ROLE_NORMAL")
+					.build();
+			roleRepository.save(admin);
+			roleRepository.save(normal);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 }
