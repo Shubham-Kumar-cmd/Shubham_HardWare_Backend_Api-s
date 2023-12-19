@@ -383,3 +383,101 @@ Caused by: java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to
 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.1.jar:6.1.1]
 	... 108 common frames omitted
 
+<<<<<<< HEAD
+=======
+2023-12-19T21:29:43.489+05:30  INFO 17876 --- [restartedMain] c.s.h.ShubhamHardwareBackendApplication  : Starting ShubhamHardwareBackendApplication using Java 19.0.2 with PID 17876 (G:\Electronic_Store\backend\practicing\ShubhamHardware_Backend\target\classes started by SHUBHAM KUMAR in G:\Electronic_Store\backend\practicing\ShubhamHardware_Backend)
+2023-12-19T21:29:43.493+05:30  INFO 17876 --- [restartedMain] c.s.h.ShubhamHardwareBackendApplication  : The following 1 profile is active: "prod"
+2023-12-19T21:29:43.618+05:30  INFO 17876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-12-19T21:29:43.618+05:30  INFO 17876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-12-19T21:29:45.299+05:30  INFO 17876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-19T21:29:45.487+05:30  INFO 17876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 169 ms. Found 8 JPA repository interfaces.
+2023-12-19T21:29:47.142+05:30  INFO 17876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8086 (http)
+2023-12-19T21:29:47.168+05:30  INFO 17876 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-19T21:29:47.169+05:30  INFO 17876 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-19T21:29:47.294+05:30  INFO 17876 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-19T21:29:47.295+05:30  INFO 17876 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3675 ms
+2023-12-19T21:29:47.610+05:30  INFO 17876 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-19T21:29:47.748+05:30  INFO 17876 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-12-19T21:29:47.806+05:30  INFO 17876 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2023-12-19T21:29:48.207+05:30  INFO 17876 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-19T21:29:48.248+05:30  INFO 17876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-19T21:29:51.232+05:30  INFO 17876 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6709b180
+2023-12-19T21:29:51.234+05:30  INFO 17876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-19T21:29:51.762+05:30  WARN 17876 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2023-12-19T21:29:52.986+05:30  INFO 17876 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-19T21:30:08.482+05:30  INFO 17876 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-19T21:30:09.596+05:30  WARN 17876 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-19T21:30:10.331+05:30  INFO 17876 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@75b43a4d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@37303f7c, org.springframework.security.web.context.SecurityContextHolderFilter@3d27c349, org.springframework.security.web.header.HeaderWriterFilter@10ad2aaa, org.springframework.web.filter.CorsFilter@24dfa51f, org.springframework.security.web.authentication.logout.LogoutFilter@7eb500e0, com.shubham.hardware.security.JwtAuthenticationFilter@2bcf8244, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7de8ec82, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4dc31fc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@dac4a15, org.springframework.security.web.session.SessionManagementFilter@2f57ad6, org.springframework.security.web.access.ExceptionTranslationFilter@207eeb6e, org.springframework.security.web.access.intercept.AuthorizationFilter@6288dda]
+2023-12-19T21:30:10.925+05:30  INFO 17876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-12-19T21:30:11.023+05:30  INFO 17876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8086 (http) with context path ''
+2023-12-19T21:30:11.039+05:30  INFO 17876 --- [restartedMain] c.s.h.ShubhamHardwareBackendApplication  : Started ShubhamHardwareBackendApplication in 28.525 seconds (process running for 29.774)
+2023-12-19T21:31:33.034+05:30  INFO 17876 --- [http-nio-8086-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [g_state={"i_l":0}] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2023-12-19T21:31:33.045+05:30  INFO 17876 --- [http-nio-8086-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-19T21:31:33.046+05:30  INFO 17876 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-12-19T21:31:33.047+05:30  INFO 17876 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-12-19T21:31:33.064+05:30  INFO 17876 --- [http-nio-8086-exec-1] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /welcome/shubham-hardware
+2023-12-19T21:31:33.065+05:30  INFO 17876 --- [http-nio-8086-exec-1] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-19T21:31:33.065+05:30  INFO 17876 --- [http-nio-8086-exec-1] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-19T21:31:33.069+05:30  WARN 17876 --- [http-nio-8086-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/welcome/shubham-hardware' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2023-12-19T21:31:33.085+05:30  INFO 17876 --- [http-nio-8086-exec-1] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /welcome/shubham-hardware
+2023-12-19T21:31:33.219+05:30  INFO 17876 --- [http-nio-8086-exec-2] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /favicon.ico
+2023-12-19T21:31:33.220+05:30  INFO 17876 --- [http-nio-8086-exec-2] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-19T21:31:33.220+05:30  INFO 17876 --- [http-nio-8086-exec-2] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-19T21:32:59.676+05:30  INFO 17876 --- [http-nio-8086-exec-6] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /shubham-hardware/users
+2023-12-19T21:32:59.678+05:30  INFO 17876 --- [http-nio-8086-exec-6] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-19T21:32:59.678+05:30  INFO 17876 --- [http-nio-8086-exec-6] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-19T21:32:59.681+05:30  INFO 17876 --- [http-nio-8086-exec-6] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /shubham-hardware/users
+2023-12-19T21:32:59.975+05:30  INFO 17876 --- [http-nio-8086-exec-6] c.s.h.validate.ImageNameValidator        : Message from isValid : shubham.png
+2023-12-19T21:34:15.814+05:30  INFO 17876 --- [http-nio-8086-exec-9] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /shubham-hardware/users
+2023-12-19T21:34:15.814+05:30  INFO 17876 --- [http-nio-8086-exec-9] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-19T21:34:15.815+05:30  INFO 17876 --- [http-nio-8086-exec-9] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-19T21:34:15.816+05:30  INFO 17876 --- [http-nio-8086-exec-9] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /shubham-hardware/users
+2023-12-19T21:34:15.818+05:30  INFO 17876 --- [http-nio-8086-exec-9] c.s.h.validate.ImageNameValidator        : Message from isValid : himanshu.png
+2023-12-19T21:34:37.214+05:30  INFO 17876 --- [http-nio-8086-exec-10] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /auth/login
+2023-12-19T21:34:37.214+05:30  INFO 17876 --- [http-nio-8086-exec-10] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-19T21:34:37.214+05:30  INFO 17876 --- [http-nio-8086-exec-10] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-19T21:34:37.215+05:30  INFO 17876 --- [http-nio-8086-exec-10] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /auth/login
+2023-12-19T21:35:00.527+05:30  INFO 17876 --- [http-nio-8086-exec-1] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /shubham-hardware/users
+2023-12-19T21:35:00.528+05:30  INFO 17876 --- [http-nio-8086-exec-1] c.s.h.security.JwtAuthenticationFilter   : Header : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaHViaGFtQGdtYWlsLmNvbSIsImlzcyI6IlNodWJoYW0gSGFyZHdhcmUiLCJpYXQiOjE3MDMwMDE4NzgsImV4cCI6MTcwMzAxOTg3OH0.tDTI1DkBHcRhf_WkwCKSsYl2iOfDxyY56ShofgFxN_6n5tPHkIHiFok87drCsr2IyqZ-gga44DFirxjzFx8FUQ
+2023-12-19T21:35:01.524+05:30  INFO 17876 --- [http-nio-8086-exec-1] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /shubham-hardware/users
+2023-12-19T21:35:15.174+05:30  INFO 17876 --- [http-nio-8086-exec-2] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /shubham-hardware/users/admin/3885acdb-9c1d-43f0-a7e6-e92ac1fb1ff6
+2023-12-19T21:35:15.174+05:30  INFO 17876 --- [http-nio-8086-exec-2] c.s.h.security.JwtAuthenticationFilter   : Header : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaHViaGFtQGdtYWlsLmNvbSIsImlzcyI6IlNodWJoYW0gSGFyZHdhcmUiLCJpYXQiOjE3MDMwMDE4NzgsImV4cCI6MTcwMzAxOTg3OH0.tDTI1DkBHcRhf_WkwCKSsYl2iOfDxyY56ShofgFxN_6n5tPHkIHiFok87drCsr2IyqZ-gga44DFirxjzFx8FUQ
+2023-12-19T21:35:16.122+05:30  INFO 17876 --- [http-nio-8086-exec-2] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /shubham-hardware/users/admin/3885acdb-9c1d-43f0-a7e6-e92ac1fb1ff6
+2023-12-19T21:45:49.035+05:30  INFO 17876 --- [http-nio-8086-exec-4] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /welcome/shubham-hardware
+2023-12-19T21:45:49.036+05:30  INFO 17876 --- [http-nio-8086-exec-4] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-19T21:45:49.036+05:30  INFO 17876 --- [http-nio-8086-exec-4] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-19T21:45:49.040+05:30  INFO 17876 --- [http-nio-8086-exec-4] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /welcome/shubham-hardware
+2023-12-19T21:45:49.246+05:30  INFO 17876 --- [http-nio-8086-exec-5] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /favicon.ico
+2023-12-19T21:45:49.246+05:30  INFO 17876 --- [http-nio-8086-exec-5] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-19T21:45:49.247+05:30  INFO 17876 --- [http-nio-8086-exec-5] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+>>>>>>> parent of 7e168b2 (Revert "added environment variable for prod if not then dev environment will run automatically")
+2023-12-19T22:23:41.429+05:30  INFO 23576 --- [restartedMain] c.s.h.ShubhamHardwareBackendApplication  : Starting ShubhamHardwareBackendApplication using Java 19.0.2 with PID 23576 (G:\Electronic_Store\backend\practicing\ShubhamHardware_Backend\target\classes started by SHUBHAM KUMAR in G:\Electronic_Store\backend\practicing\ShubhamHardware_Backend)
+2023-12-19T22:23:41.434+05:30  INFO 23576 --- [restartedMain] c.s.h.ShubhamHardwareBackendApplication  : The following 1 profile is active: "dev"
+2023-12-19T22:23:41.574+05:30  INFO 23576 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-12-19T22:23:41.575+05:30  INFO 23576 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-12-19T22:23:44.335+05:30  INFO 23576 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-19T22:23:44.513+05:30  INFO 23576 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 158 ms. Found 8 JPA repository interfaces.
+2023-12-19T22:23:46.272+05:30  INFO 23576 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8086 (http)
+2023-12-19T22:23:46.295+05:30  INFO 23576 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-19T22:23:46.296+05:30  INFO 23576 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-19T22:23:46.397+05:30  INFO 23576 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-19T22:23:46.398+05:30  INFO 23576 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4821 ms
+2023-12-19T22:23:46.679+05:30  INFO 23576 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-19T22:23:46.843+05:30  INFO 23576 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-12-19T22:23:46.941+05:30  INFO 23576 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2023-12-19T22:23:47.442+05:30  INFO 23576 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-19T22:23:47.503+05:30  INFO 23576 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-19T22:23:48.731+05:30  INFO 23576 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3ad598bd
+2023-12-19T22:23:48.733+05:30  INFO 23576 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-19T22:23:48.963+05:30  WARN 23576 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2023-12-19T22:23:50.687+05:30  INFO 23576 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-19T22:23:51.254+05:30  INFO 23576 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-19T22:23:52.455+05:30  WARN 23576 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-19T22:23:52.937+05:30  INFO 23576 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@254ff0ed, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6c0b2986, org.springframework.security.web.context.SecurityContextHolderFilter@2134ff19, org.springframework.security.web.header.HeaderWriterFilter@4586ee87, org.springframework.web.filter.CorsFilter@343cd7f6, org.springframework.security.web.authentication.logout.LogoutFilter@26ab25cc, com.shubham.hardware.security.JwtAuthenticationFilter@43bcacf5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5ae464e0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@fae0a55, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2a0d0c5b, org.springframework.security.web.session.SessionManagementFilter@23fdaa10, org.springframework.security.web.access.ExceptionTranslationFilter@1cf335f3, org.springframework.security.web.access.intercept.AuthorizationFilter@3095082]
+2023-12-19T22:23:53.278+05:30  INFO 23576 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-12-19T22:23:53.350+05:30  INFO 23576 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8086 (http) with context path ''
+2023-12-19T22:23:53.361+05:30  INFO 23576 --- [restartedMain] c.s.h.ShubhamHardwareBackendApplication  : Started ShubhamHardwareBackendApplication in 13.007 seconds (process running for 14.684)
+2023-12-19T22:24:53.975+05:30  INFO 23576 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-19T22:24:53.979+05:30  INFO 23576 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-19T22:24:54.081+05:30  INFO 23576 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
