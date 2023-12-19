@@ -442,3 +442,10 @@ Caused by: java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to
 2023-12-19T21:35:15.174+05:30  INFO 17876 --- [http-nio-8086-exec-2] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /shubham-hardware/users/admin/3885acdb-9c1d-43f0-a7e6-e92ac1fb1ff6
 2023-12-19T21:35:15.174+05:30  INFO 17876 --- [http-nio-8086-exec-2] c.s.h.security.JwtAuthenticationFilter   : Header : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaHViaGFtQGdtYWlsLmNvbSIsImlzcyI6IlNodWJoYW0gSGFyZHdhcmUiLCJpYXQiOjE3MDMwMDE4NzgsImV4cCI6MTcwMzAxOTg3OH0.tDTI1DkBHcRhf_WkwCKSsYl2iOfDxyY56ShofgFxN_6n5tPHkIHiFok87drCsr2IyqZ-gga44DFirxjzFx8FUQ
 2023-12-19T21:35:16.122+05:30  INFO 17876 --- [http-nio-8086-exec-2] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /shubham-hardware/users/admin/3885acdb-9c1d-43f0-a7e6-e92ac1fb1ff6
+2023-12-19T21:45:49.035+05:30  INFO 17876 --- [http-nio-8086-exec-4] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /welcome/shubham-hardware
+2023-12-19T21:45:49.036+05:30  INFO 17876 --- [http-nio-8086-exec-4] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-19T21:45:49.036+05:30  INFO 17876 --- [http-nio-8086-exec-4] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-19T21:45:49.040+05:30  INFO 17876 --- [http-nio-8086-exec-4] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /welcome/shubham-hardware
+2023-12-19T21:45:49.246+05:30  INFO 17876 --- [http-nio-8086-exec-5] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /favicon.ico
+2023-12-19T21:45:49.246+05:30  INFO 17876 --- [http-nio-8086-exec-5] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-19T21:45:49.247+05:30  INFO 17876 --- [http-nio-8086-exec-5] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
