@@ -8,6 +8,7 @@ class ShubhamHardwareBackendApplicationTests {
 
 	@Test
 	void contextLoads() {
+		System.out.println("test pass");
 	}
 
 }
