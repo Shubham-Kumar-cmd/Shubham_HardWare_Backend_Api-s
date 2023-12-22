@@ -117,6 +117,7 @@ public class UserServiceImpl implements UserService {
         }
 
 //        delete user
+        user.setRoles(null);//removing the roles of user before deleting the user bcz user is dependent on roles (i.e, SqlConstraintViolationException)
         userRepository.delete(user);
     }
 
