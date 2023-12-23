@@ -6,10 +6,10 @@ import com.shubham.hardware.dtos.PageableResponse;
 import com.shubham.hardware.dtos.UserDto;
 import com.shubham.hardware.services.FileService;
 import com.shubham.hardware.services.UserService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -34,7 +34,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/shubham-hardware/users")
-@Api(value = "UserController",description = "REST APIS related to perform user operations!!")
+@Tag(name = "UserController",description = "REST APIS related to perform user operations!!")
 public class UserControllers {
 
     @Autowired
@@ -50,11 +50,11 @@ public class UserControllers {
 
 //    create
     @PostMapping
-    @ApiOperation(value = "create new user!!")
+    @Operation(summary = "create new user!!",description = "this is create user api!!")
     @ApiResponses(value={
-            @ApiResponse(code = 200,message = "Success | Ok"),
-            @ApiResponse(code = 401,message = "not authorized!!"),
-            @ApiResponse(code = 201,message = "new user created!!")
+            @ApiResponse(responseCode  = "200",description = "Success | Ok"),
+            @ApiResponse(responseCode  = "401",description = "not authorized!!"),
+            @ApiResponse(responseCode  = "201",description = "new user created!!")
     })
     public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto){
         UserDto user = userService.createUser(userDto);
@@ -82,7 +82,7 @@ public class UserControllers {
 
 //    get single user
     @GetMapping("/{userId}")
-    @ApiOperation(value = "get single user by userId!!")
+    @Operation(summary = "get single user by userId!!")
     public ResponseEntity<UserDto> getUserById(@PathVariable("userId") String userId){
         UserDto user = userService.getUserById(userId);
         return new ResponseEntity<>(user,HttpStatus.OK);
@@ -91,7 +91,7 @@ public class UserControllers {
 //    get all user
 //    http://localhost:8086/shubham-hardware/users?pageNumber=0&pageSize=2&sortBy=[anyAttributeName like name,email,gender]&sortDir=desc
     @GetMapping
-    @ApiOperation(value = "get all users",response = ResponseEntity.class,tags = {"user-controller"})
+    @Operation(summary = "get all users")
     public ResponseEntity<PageableResponse<UserDto>> getAllUsers(
             @RequestParam(value = "pageNumber", defaultValue = "0", required = false) int pageNumber,
             @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize,

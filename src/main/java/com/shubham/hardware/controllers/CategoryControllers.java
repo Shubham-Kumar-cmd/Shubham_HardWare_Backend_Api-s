@@ -4,7 +4,7 @@ import com.shubham.hardware.dtos.*;
 import com.shubham.hardware.services.CategoryService;
 import com.shubham.hardware.services.FileService;
 import com.shubham.hardware.services.ProductService;
-import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -25,7 +25,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/shubham-hardware/categories")
-@Api(value = "CategoryController",description = "REST APIS related to perform category operations!!")
+@Tag(name = "CategoryController",description = "REST APIS related to perform category operations!!")
 public class CategoryControllers {
 
     @Autowired

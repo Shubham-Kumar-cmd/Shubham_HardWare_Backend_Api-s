@@ -11,7 +11,7 @@ import com.shubham.hardware.entities.User;
 import com.shubham.hardware.exceptions.BadApiRequestException;
 import com.shubham.hardware.security.JwtHelper;
 import com.shubham.hardware.services.UserService;
-import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,7 +35,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
-@Api(value = "GoogleController",description = "API for login with Google Authentication")
+@Tag(name = "GoogleController",description = "API for login with Google Authentication")
 //@CrossOrigin(
 //        origins = "http://localhost:4200",
 //        allowedHeaders = {"Authorization"},
