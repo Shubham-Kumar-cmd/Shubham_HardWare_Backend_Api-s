@@ -325,3 +325,266 @@
 2023-12-23T15:39:54.588+05:30  INFO 15568 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-12-23T15:39:54.596+05:30  INFO 15568 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-12-23T15:39:54.616+05:30  INFO 15568 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-12-23T15:40:00.234+05:30  INFO 3588 --- [restartedMain] c.s.h.ShubhamHardwareBackendApplication  : Starting ShubhamHardwareBackendApplication using Java 19.0.2 with PID 3588 (G:\Electronic_Store\backend\practicing\ShubhamHardware_Backend\target\classes started by SHUBHAM KUMAR in G:\Electronic_Store\backend\practicing\ShubhamHardware_Backend)
+2023-12-23T15:40:00.236+05:30  INFO 3588 --- [restartedMain] c.s.h.ShubhamHardwareBackendApplication  : The following 1 profile is active: "dev"
+2023-12-23T15:40:00.336+05:30  INFO 3588 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-12-23T15:40:00.336+05:30  INFO 3588 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-12-23T15:40:01.763+05:30  INFO 3588 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-23T15:40:01.909+05:30  INFO 3588 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 128 ms. Found 8 JPA repository interfaces.
+2023-12-23T15:40:03.075+05:30  INFO 3588 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8086 (http)
+2023-12-23T15:40:03.093+05:30  INFO 3588 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-23T15:40:03.093+05:30  INFO 3588 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-23T15:40:03.173+05:30  INFO 3588 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-23T15:40:03.174+05:30  INFO 3588 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2838 ms
+2023-12-23T15:40:03.487+05:30  INFO 3588 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-23T15:40:03.595+05:30  INFO 3588 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-12-23T15:40:03.713+05:30  INFO 3588 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2023-12-23T15:40:04.019+05:30  INFO 3588 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-23T15:40:04.068+05:30  INFO 3588 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-23T15:40:04.481+05:30  INFO 3588 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7aad1c23
+2023-12-23T15:40:04.483+05:30  INFO 3588 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-23T15:40:04.700+05:30  WARN 3588 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2023-12-23T15:40:06.029+05:30  INFO 3588 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-23T15:40:06.243+05:30  INFO 3588 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-23T15:40:07.301+05:30  WARN 3588 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-23T15:40:07.732+05:30  INFO 3588 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@d696ca8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@55351284, org.springframework.security.web.context.SecurityContextHolderFilter@5f5f6f0c, org.springframework.security.web.header.HeaderWriterFilter@10f211fc, org.springframework.web.filter.CorsFilter@79e5afb1, org.springframework.security.web.authentication.logout.LogoutFilter@5dafb078, com.shubham.hardware.security.JwtAuthenticationFilter@1bc38c19, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@50ae18e7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e8fb345, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@469658af, org.springframework.security.web.session.SessionManagementFilter@7aa5cd90, org.springframework.security.web.access.ExceptionTranslationFilter@298ec173, org.springframework.security.web.access.intercept.AuthorizationFilter@55babfa]
+2023-12-23T15:40:08.166+05:30  INFO 3588 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-12-23T15:40:08.228+05:30  INFO 3588 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8086 (http) with context path ''
+2023-12-23T15:40:08.238+05:30  INFO 3588 --- [restartedMain] c.s.h.ShubhamHardwareBackendApplication  : Started ShubhamHardwareBackendApplication in 8.763 seconds (process running for 9.605)
+2023-12-23T15:40:12.144+05:30  INFO 3588 --- [http-nio-8086-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [g_state={"i_l":0}] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2023-12-23T15:40:12.152+05:30  INFO 3588 --- [http-nio-8086-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-23T15:40:12.153+05:30  INFO 3588 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-12-23T15:40:12.154+05:30  INFO 3588 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-12-23T15:40:12.175+05:30  INFO 3588 --- [http-nio-8086-exec-1] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-23T15:40:12.175+05:30  INFO 3588 --- [http-nio-8086-exec-1] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-23T15:40:12.181+05:30  WARN 3588 --- [http-nio-8086-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/swagger-ui/index.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2023-12-23T15:40:12.250+05:30  INFO 3588 --- [http-nio-8086-exec-2] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-23T15:40:12.251+05:30  INFO 3588 --- [http-nio-8086-exec-2] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-23T15:40:12.257+05:30  INFO 3588 --- [http-nio-8086-exec-3] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-23T15:40:12.258+05:30  INFO 3588 --- [http-nio-8086-exec-3] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-23T15:40:12.259+05:30  INFO 3588 --- [http-nio-8086-exec-4] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-23T15:40:12.259+05:30  INFO 3588 --- [http-nio-8086-exec-4] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-23T15:40:12.261+05:30  INFO 3588 --- [http-nio-8086-exec-6] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-23T15:40:12.261+05:30  INFO 3588 --- [http-nio-8086-exec-6] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-23T15:40:12.263+05:30  INFO 3588 --- [http-nio-8086-exec-5] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-23T15:40:12.264+05:30  INFO 3588 --- [http-nio-8086-exec-5] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-23T15:40:12.554+05:30  INFO 3588 --- [http-nio-8086-exec-7] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-23T15:40:12.554+05:30  INFO 3588 --- [http-nio-8086-exec-7] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-23T15:40:12.558+05:30  INFO 3588 --- [http-nio-8086-exec-8] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-23T15:40:12.558+05:30  INFO 3588 --- [http-nio-8086-exec-8] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-23T15:40:12.643+05:30  INFO 3588 --- [http-nio-8086-exec-9] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-23T15:40:12.643+05:30  INFO 3588 --- [http-nio-8086-exec-9] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-23T15:40:13.667+05:30  INFO 3588 --- [http-nio-8086-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 991 ms
+2023-12-23T15:40:22.845+05:30  INFO 3588 --- [http-nio-8086-exec-10] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-23T15:40:22.845+05:30  INFO 3588 --- [http-nio-8086-exec-10] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-23T15:40:25.400+05:30  INFO 3588 --- [http-nio-8086-exec-1] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-23T15:40:25.400+05:30  INFO 3588 --- [http-nio-8086-exec-1] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-23T15:42:18.055+05:30  INFO 3588 --- [http-nio-8086-exec-8] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-23T15:42:18.055+05:30  INFO 3588 --- [http-nio-8086-exec-8] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-23T15:42:18.167+05:30  INFO 3588 --- [http-nio-8086-exec-8] c.s.h.validate.ImageNameValidator        : Message from isValid : qwerty.png
+2023-12-23T15:42:18.896+05:30  WARN 3588 --- [http-nio-8086-exec-8] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1062, SQLState: 23000
+2023-12-23T15:42:18.897+05:30 ERROR 3588 --- [http-nio-8086-exec-8] o.h.engine.jdbc.spi.SqlExceptionHelper   : Duplicate entry 'qwerty@gmail.com' for key 'users.UK_6dotkott2kjsp8vw4d0m25fb7'
+2023-12-23T15:42:18.915+05:30 ERROR 3588 --- [http-nio-8086-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry 'qwerty@gmail.com' for key 'users.UK_6dotkott2kjsp8vw4d0m25fb7'] [insert into users (about,email,gender,user_image_name,name,password,user_id) values (?,?,?,?,?,?,?)]; SQL [insert into users (about,email,gender,user_image_name,name,password,user_id) values (?,?,?,?,?,?,?)]; constraint [users.UK_6dotkott2kjsp8vw4d0m25fb7]] with root cause
+
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'qwerty@gmail.com' for key 'users.UK_6dotkott2kjsp8vw4d0m25fb7'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118) ~[mysql-connector-j-8.1.0.jar:8.1.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.1.0.jar:8.1.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-j-8.1.0.jar:8.1.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061) ~[mysql-connector-j-8.1.0.jar:8.1.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009) ~[mysql-connector-j-8.1.0.jar:8.1.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320) ~[mysql-connector-j-8.1.0.jar:8.1.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994) ~[mysql-connector-j-8.1.0.jar:8.1.0]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:280) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.performNonBatchedMutation(AbstractMutationExecutor.java:107) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:40) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:52) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:171) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:112) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2865) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:102) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:631) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:498) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:363) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1415) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:496) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2325) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1988) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:169) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:267) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:561) ~[spring-orm-6.1.1.jar:6.1.1]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:794) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:757) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:669) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:419) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164) ~[spring-data-jpa-3.2.0.jar:3.2.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:249) ~[spring-aop-6.1.1.jar:6.1.1]
+	at jdk.proxy4/jdk.proxy4.$Proxy134.save(Unknown Source) ~[na:na]
+	at com.shubham.hardware.services.impl.UserServiceImpl.createUser(UserServiceImpl.java:77) ~[classes/:na]
+	at com.shubham.hardware.controllers.UserControllers.createUser(UserControllers.java:60) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:254) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at com.shubham.hardware.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:81) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:1589) ~[na:na]
+
+2023-12-23T15:43:10.812+05:30  INFO 3588 --- [http-nio-8086-exec-7] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-23T15:43:10.812+05:30  INFO 3588 --- [http-nio-8086-exec-7] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-23T15:43:10.815+05:30  INFO 3588 --- [http-nio-8086-exec-7] c.s.h.validate.ImageNameValidator        : Message from isValid : qwerty.png
+2023-12-23T15:44:09.211+05:30  INFO 3588 --- [http-nio-8086-exec-9] c.s.h.security.JwtAuthenticationFilter   : Header : null
+2023-12-23T15:44:09.212+05:30  INFO 3588 --- [http-nio-8086-exec-9] c.s.h.security.JwtAuthenticationFilter   : Invalid header value!!
+2023-12-23T16:05:18.379+05:30  INFO 3588 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-23T16:05:18.391+05:30  INFO 3588 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-23T16:05:18.405+05:30  INFO 3588 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-12-23T16:05:28.361+05:30  INFO 3516 --- [restartedMain] c.s.h.ShubhamHardwareBackendApplication  : Starting ShubhamHardwareBackendApplication using Java 19.0.2 with PID 3516 (G:\Electronic_Store\backend\practicing\ShubhamHardware_Backend\target\classes started by SHUBHAM KUMAR in G:\Electronic_Store\backend\practicing\ShubhamHardware_Backend)
+2023-12-23T16:05:28.366+05:30  INFO 3516 --- [restartedMain] c.s.h.ShubhamHardwareBackendApplication  : The following 1 profile is active: "dev"
+2023-12-23T16:05:28.524+05:30  INFO 3516 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-12-23T16:05:28.524+05:30  INFO 3516 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-12-23T16:05:31.672+05:30  INFO 3516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-23T16:05:31.891+05:30  INFO 3516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 202 ms. Found 8 JPA repository interfaces.
+2023-12-23T16:05:33.771+05:30  INFO 3516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8086 (http)
+2023-12-23T16:05:33.813+05:30  INFO 3516 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-23T16:05:33.814+05:30  INFO 3516 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-23T16:05:33.972+05:30  INFO 3516 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-23T16:05:33.974+05:30  INFO 3516 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5447 ms
+2023-12-23T16:05:34.396+05:30  INFO 3516 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-23T16:05:34.514+05:30  INFO 3516 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-12-23T16:05:34.605+05:30  INFO 3516 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2023-12-23T16:05:35.045+05:30  INFO 3516 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-23T16:05:35.081+05:30  INFO 3516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-23T16:05:36.108+05:30  INFO 3516 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@79bebba8
+2023-12-23T16:05:36.112+05:30  INFO 3516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-23T16:05:36.626+05:30  WARN 3516 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2023-12-23T16:05:39.660+05:30  INFO 3516 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-23T16:05:40.682+05:30  INFO 3516 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-23T16:05:42.062+05:30  WARN 3516 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-23T16:05:42.726+05:30  INFO 3516 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6856a03a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@fd0f5b5, org.springframework.security.web.context.SecurityContextHolderFilter@58c2f6b5, org.springframework.security.web.header.HeaderWriterFilter@6cc3086e, org.springframework.web.filter.CorsFilter@6aa4bf28, org.springframework.security.web.authentication.logout.LogoutFilter@6c0c8b64, com.shubham.hardware.security.JwtAuthenticationFilter@48ac7283, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@267ae969, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@17db14e0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5119547c, org.springframework.security.web.session.SessionManagementFilter@43cf298a, org.springframework.security.web.access.ExceptionTranslationFilter@2934e965, org.springframework.security.web.access.intercept.AuthorizationFilter@2528593c]
+2023-12-23T16:05:43.288+05:30  INFO 3516 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-12-23T16:05:43.415+05:30  INFO 3516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8086 (http) with context path ''
+2023-12-23T16:05:43.429+05:30  INFO 3516 --- [restartedMain] c.s.h.ShubhamHardwareBackendApplication  : Started ShubhamHardwareBackendApplication in 16.045 seconds (process running for 17.357)
+2023-12-23T16:05:45.720+05:30  INFO 3516 --- [http-nio-8086-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [g_state={"i_l":0}] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2023-12-23T16:05:45.732+05:30  INFO 3516 --- [http-nio-8086-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-23T16:05:45.733+05:30  INFO 3516 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-12-23T16:05:45.735+05:30  INFO 3516 --- [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-12-23T16:05:45.768+05:30  INFO 3516 --- [http-nio-8086-exec-1] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /swagger-ui/index.html
+2023-12-23T16:05:45.777+05:30  WARN 3516 --- [http-nio-8086-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/swagger-ui/index.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2023-12-23T16:05:45.808+05:30  INFO 3516 --- [http-nio-8086-exec-1] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /swagger-ui/index.html
+2023-12-23T16:05:45.905+05:30  INFO 3516 --- [http-nio-8086-exec-2] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /swagger-ui/swagger-ui.css
+2023-12-23T16:05:45.913+05:30  INFO 3516 --- [http-nio-8086-exec-3] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /swagger-ui/index.css
+2023-12-23T16:05:45.915+05:30  INFO 3516 --- [http-nio-8086-exec-5] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /swagger-ui/swagger-ui-standalone-preset.js
+2023-12-23T16:05:45.916+05:30  INFO 3516 --- [http-nio-8086-exec-4] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /swagger-ui/swagger-ui-bundle.js
+2023-12-23T16:05:45.919+05:30  INFO 3516 --- [http-nio-8086-exec-6] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /swagger-ui/swagger-initializer.js
+2023-12-23T16:05:45.920+05:30  INFO 3516 --- [http-nio-8086-exec-3] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /swagger-ui/index.css
+2023-12-23T16:05:45.918+05:30  INFO 3516 --- [http-nio-8086-exec-2] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /swagger-ui/swagger-ui.css
+2023-12-23T16:05:45.920+05:30  INFO 3516 --- [http-nio-8086-exec-5] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /swagger-ui/swagger-ui-standalone-preset.js
+2023-12-23T16:05:45.921+05:30  INFO 3516 --- [http-nio-8086-exec-4] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /swagger-ui/swagger-ui-bundle.js
+2023-12-23T16:05:45.925+05:30  INFO 3516 --- [http-nio-8086-exec-6] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /swagger-ui/swagger-initializer.js
+2023-12-23T16:05:46.369+05:30  INFO 3516 --- [http-nio-8086-exec-7] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /v3/api-docs/swagger-config
+2023-12-23T16:05:46.373+05:30  INFO 3516 --- [http-nio-8086-exec-8] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /swagger-ui/favicon-32x32.png
+2023-12-23T16:05:46.377+05:30  INFO 3516 --- [http-nio-8086-exec-7] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /v3/api-docs/swagger-config
+2023-12-23T16:05:46.378+05:30  INFO 3516 --- [http-nio-8086-exec-8] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /swagger-ui/favicon-32x32.png
+2023-12-23T16:05:46.487+05:30  INFO 3516 --- [http-nio-8086-exec-9] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /v3/api-docs/com.shubham.hardware.controllers
+2023-12-23T16:05:46.491+05:30  INFO 3516 --- [http-nio-8086-exec-9] c.s.h.security.JwtAuthenticationFilter   : ShouldNotFilter : /v3/api-docs/com.shubham.hardware.controllers
+2023-12-23T16:05:48.646+05:30  INFO 3516 --- [http-nio-8086-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 2118 ms
+2023-12-23T16:08:01.425+05:30  INFO 3516 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-23T16:08:01.440+05:30  INFO 3516 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-23T16:08:01.457+05:30  INFO 3516 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
