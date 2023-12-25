@@ -3,6 +3,7 @@ package com.shubham.hardware.controllers;
 import com.shubham.hardware.dtos.*;
 import com.shubham.hardware.services.FileService;
 import com.shubham.hardware.services.ProductService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
@@ -30,6 +31,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/shubham-hardware/products")
 @Tag(name = "ProductController",description = "REST APIS related to perform product operations!!")
+@SecurityRequirement(name = "bearerScheme")
 public class ProductControllers {
 
     @Autowired

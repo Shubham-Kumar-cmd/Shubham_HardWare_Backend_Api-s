@@ -6,6 +6,7 @@ import com.shubham.hardware.dtos.UserDto;
 import com.shubham.hardware.exceptions.BadApiRequestException;
 import com.shubham.hardware.security.JwtHelper;
 import com.shubham.hardware.services.UserService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ import java.security.Principal;
 @RestController
 @RequestMapping("/auth")
 @Tag(name = "AuthController",description = "APIS for login Authentication!!")
+@SecurityRequirement(name = "bearerScheme")
 public class AuthControllers {
 
     @Autowired

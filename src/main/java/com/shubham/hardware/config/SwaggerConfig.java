@@ -1,13 +1,15 @@
 package com.shubham.hardware.config;
 
+import io.swagger.v3.oas.annotations.ExternalDocumentation;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.info.Contact;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.info.License;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.models.Components;
-import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Contact;
-import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
-import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +26,35 @@ import java.util.Arrays;
 import java.util.List;
 
 @Configuration
+@SecurityScheme(
+        name = "bearerScheme",
+        type = SecuritySchemeType.HTTP,
+        bearerFormat = "JWT",
+        scheme = "bearer"
+)
+@OpenAPIDefinition(
+        info = @Info(
+                    title="Shubham Hardware Backend : APIS",
+                    description="This is a backend api's for creating a online shop for selling products!!",
+                    version="1.0v",
+                    contact=@Contact(
+                            name="Shubham Kumar",
+                            email="kumar53shubham@gmail.com",
+                            url="https://www.instagram.com/kumar53shubham"
+                    ),
+                    license=@License(
+                            name="Shubham Hardware 1.0",
+                            url="https://www.shubham-hardware.com"
+                    )
+        ),
+        externalDocs = @ExternalDocumentation(
+                url="https://www.shubham-hardware.com/about",
+                description="This is online shopping portal for Hardware!!"
+        )
+)
 public class SwaggerConfig {
+
+//    spring for can be used in spring2.0
 
 //    @Bean
 //    public Docket docket(){
@@ -77,41 +107,43 @@ public class SwaggerConfig {
 //    }
 
 
-    @Bean
-    public GroupedOpenApi publicApi() {
-        return GroupedOpenApi.builder()
-                .group("com.shubham.hardware.controllers")
-                .pathsToMatch("/auth/**","/shubham-hardware/users/**","/shubham-hardware/products/**","/shubham-hardware/categories/**","/shubham-hardware/carts/**","/shubham-hardware/orders/**","/welcome/shubham-hardware")
-                .build();
-    }
-
-    @Bean
-    public OpenAPI openAPI(){
-
-        String schemeName="bearerScheme";
-
-        OpenAPI openAPI = new OpenAPI()
-                .addSecurityItem(new SecurityRequirement()
-                        .addList(schemeName)
-                )
-                .components(new Components()
-                        .addSecuritySchemes(schemeName,new SecurityScheme()
-                                .name(schemeName)
-                                .type(SecurityScheme.Type.HTTP)
-                                .bearerFormat("JWT")
-                                .scheme("bearer")
-                        )
-                )
-                .info(new Info().title("Shubham Hardware Backend : APIS")
-                        .description("This is a backend api's for creating a online shop for selling products!!")
-                        .version("1.0v")
-                        .contact(new Contact().name("Shubham Kumar").email("kumar53shubham@gmail.com").url("https://www.instagram.com/kumar53shubham"))
-                        .license(new License().name("Shubham Hardware 1.0").url("https://www.shubham-hardware.com"))
-                )
-                .externalDocs(new ExternalDocumentation()
-                .url("https://www.shubham-hardware.com/about")
-                .description("This is online shopping portal for Hardware!!")
-                );
-        return openAPI;
-    }
+//    spring-doc migration used in spring3.0
+//    @Bean
+//    public GroupedOpenApi publicApi() {
+//        return GroupedOpenApi.builder()
+//                .group("com.shubham.hardware.controllers")
+//                .pathsToMatch("/auth/**","/shubham-hardware/users/**","/shubham-hardware/products/**","/shubham-hardware/categories/**","/shubham-hardware/carts/**","/shubham-hardware/orders/**","/welcome/shubham-hardware")
+//                .build();
+//    }
+//
+////    without annotation
+//    @Bean
+//    public OpenAPI openAPI(){
+//
+//        String schemeName="bearerScheme";
+//
+//        OpenAPI openAPI = new OpenAPI()
+//                .addSecurityItem(new SecurityRequirement()
+//                        .addList(schemeName)
+//                )
+//                .components(new Components()
+//                        .addSecuritySchemes(schemeName,new SecurityScheme()
+//                                .name(schemeName)
+//                                .type(SecurityScheme.Type.HTTP)
+//                                .bearerFormat("JWT")
+//                                .scheme("bearer")
+//                        )
+//                )
+//                .info(new Info().title("Shubham Hardware Backend : APIS")
+//                        .description("This is a backend api's for creating a online shop for selling products!!")
+//                        .version("1.0v")
+//                        .contact(new Contact().name("Shubham Kumar").email("kumar53shubham@gmail.com").url("https://www.instagram.com/kumar53shubham"))
+//                        .license(new License().name("Shubham Hardware 1.0").url("https://www.shubham-hardware.com"))
+//                )
+//                .externalDocs(new ExternalDocumentation()
+//                .url("https://www.shubham-hardware.com/about")
+//                .description("This is online shopping portal for Hardware!!")
+//                );
+//        return openAPI;
+//    }
 }

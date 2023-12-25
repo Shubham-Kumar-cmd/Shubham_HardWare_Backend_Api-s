@@ -9,6 +9,7 @@ import com.shubham.hardware.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
@@ -35,6 +36,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/shubham-hardware/users")
 @Tag(name = "UserController",description = "REST APIS related to perform user operations!!")
+@SecurityRequirement(name = "bearerScheme")
 public class UserControllers {
 
     @Autowired

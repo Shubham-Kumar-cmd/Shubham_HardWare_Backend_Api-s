@@ -4,6 +4,7 @@ import com.shubham.hardware.dtos.AddItemToCartRequest;
 import com.shubham.hardware.dtos.ApiResponseMessage;
 import com.shubham.hardware.dtos.CartDto;
 import com.shubham.hardware.services.CartService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/shubham-hardware/carts")
 @Tag(name = "CartController",description = "REST APIS related to perform cart operations!!")
+@SecurityRequirement(name = "bearerScheme")
 public class CartControllers {
 
     @Autowired
