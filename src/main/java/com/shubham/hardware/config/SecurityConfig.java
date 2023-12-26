@@ -142,9 +142,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET,"/welcome/shubham-hardware")
                         .permitAll()
 
-//                        .requestMatchers("/swagger-ui/index.html","/favicon.ico")
-//                        .permitAll()
-
+                        .requestMatchers("/shubham-hardware/payment/**")
+                        .permitAll()
 
                         .requestMatchers(PUBLIC_URLS)
                         .permitAll()

@@ -34,4 +34,8 @@ public class OrderDto {
 //    private UserDto user;
     private List<OrderItemDto> orderItems=new ArrayList<>();
 
+    private String razorPayOrderId;
+
+    private String paymentId;
+
 }
