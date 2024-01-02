@@ -22,7 +22,7 @@ public class Order {
     @Id
     private String orderId;
 
-//    PENDING,DISPATCHED,DELIVERED
+//    PENDING,PLACED,DISPATCHED,DELIVERED
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
 

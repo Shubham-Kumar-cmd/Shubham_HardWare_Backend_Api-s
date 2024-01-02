@@ -3,6 +3,7 @@ package com.shubham.hardware.services.impl;
 import com.razorpay.Order;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
+import com.shubham.hardware.enums.OrderStatus;
 import com.shubham.hardware.enums.PaymentStatus;
 import com.shubham.hardware.exceptions.ResourceNotFoundException;
 import com.shubham.hardware.repo.OrderRepository;
@@ -51,6 +52,7 @@ public class PaymentServiceImpl implements PaymentService {
             //here we can perform save operation to save the detail of order
             com.shubham.hardware.entities.Order order = orderRepository.findById(orderId).orElseThrow(() -> new ResourceNotFoundException("Order not exist with given order id!!"));
             order.setRazorPayOrderId(orderCreated.get("id"));
+            order.setOrderStatus(OrderStatus.PLACED);
 //            order.setOrderAmount((Double) orderCreated.get("amount"));
 //            order.setPaymentId(null);
             this.orderRepository.save(order);
@@ -65,10 +67,10 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public String saveDataToDatabase(Map<String, Object> data) {
-        com.shubham.hardware.entities.Order myOrder = this.orderRepository.findByRazorPayOrderId(data.get("razor_pay_order_id").toString());
+//        razor_pay_order_id of database is equal to order_id of RazorPay
+        com.shubham.hardware.entities.Order myOrder = this.orderRepository.findByRazorPayOrderId(data.get("order_id").toString());
         String status = data.get("status").toString();
         logger.info("Order Status : {}",status);
-//        myOrder.setOrderStatus(OrderStatus.PENDING);
         myOrder.setPaymentId(data.get("payment_id").toString());
         myOrder.setPaymentStatus(PaymentStatus.PAID);
         this.orderRepository.save(myOrder);
