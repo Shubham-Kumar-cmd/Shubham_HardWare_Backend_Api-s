@@ -145,6 +145,9 @@ public class SecurityConfig {
                         .requestMatchers("/shubham-hardware/payment/**")
                         .permitAll()
 
+//                        .requestMatchers("/shubham-hardware/email/**")
+//                        .permitAll()
+
                         .requestMatchers(PUBLIC_URLS)
                         .permitAll()
 
