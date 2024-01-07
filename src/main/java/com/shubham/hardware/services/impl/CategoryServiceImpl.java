@@ -12,6 +12,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -27,6 +31,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@CacheConfig(cacheNames = "category")
 public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
@@ -41,7 +46,9 @@ public class CategoryServiceImpl implements CategoryService {
     private Logger logger= LoggerFactory.getLogger(CategoryServiceImpl.class);
 
     @Override
+    @CachePut(key = "#categoryDto.categoryId")
     public CategoryDto create(CategoryDto categoryDto) {
+        logger.info("CategoryService::create() connecting to database!!");
 //        generate unique id in string format
         String categoryId = UUID.randomUUID().toString();
         Category category = modelMapper.map(categoryDto, Category.class);
@@ -52,7 +59,9 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @CachePut(key = "#categoryId")
     public CategoryDto update(CategoryDto categoryDto, String categoryId) {
+        logger.info("CategoryService::update() connecting to database!!");
         Category category = categoryRepository.findById(categoryId).orElseThrow(()->new ResourceNotFoundException("Category not found with given id!!"));
         category.setTitle(categoryDto.getTitle());
         category.setDescription(categoryDto.getDescription());
@@ -63,7 +72,9 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @CacheEvict(key = "#categoryId")
     public void delete(String categoryId) {
+        logger.info("CategoryService::delete() connecting to database!!");
         Category category = categoryRepository.findById(categoryId).orElseThrow(()->new ResourceNotFoundException("Category not found with given id!!"));
 
 //        delete Category image first before deleting user
@@ -85,14 +96,18 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @Cacheable(key = "#categoryId")
     public CategoryDto getCategoryById(String categoryId) {
+        logger.info("CategoryService::getCategoryById() connecting to database!!");
         Category category = categoryRepository.findById(categoryId).orElseThrow(()->new ResourceNotFoundException("Category not found with given id!!"));
         CategoryDto categoryDto = modelMapper.map(category, CategoryDto.class);
         return categoryDto;
     }
 
     @Override
+    @Cacheable
     public PageableResponse<CategoryDto> getAllCategory(int pageNumber, int pageSize, String sortBy, String sortDir) {
+        logger.info("CategoryService::getAllCategory() connecting to database!!");
 
 //        ternary operator
         Sort sort = (sortDir.equalsIgnoreCase("desc"))?(Sort.by(sortBy).descending()):(Sort.by(sortBy).ascending());

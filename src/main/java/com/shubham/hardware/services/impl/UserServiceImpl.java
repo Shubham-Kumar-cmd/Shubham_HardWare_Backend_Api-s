@@ -14,6 +14,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -32,6 +36,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
+@CacheConfig(cacheNames = "users")
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -59,7 +64,9 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
+    @CachePut(key = "#userDto.userId")
     public UserDto createUser(UserDto userDto) {
+        logger.info("UserService::createUser() connecting to database!!");
 //        generate unique id in string format
         String userId = UUID.randomUUID().toString();
         userDto.setUserId(userId);
@@ -82,7 +89,9 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
+    @CachePut(key = "#userId")
     public UserDto updateUser(UserDto userDto, String userId) {
+        logger.info("UserService::updateUser() connecting to database!!");
         User user = userRepository.findById(userId).orElseThrow(()->new ResourceNotFoundException("User not found exception"));
         user.setName(userDto.getName());
 //        we don't want to update the email
@@ -100,7 +109,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @CacheEvict(key = "#userId")
     public void deleteUser(String userId) {
+        logger.info("UserService::deleteUser() connecting to database!!");
         User user = userRepository.findById(userId).orElseThrow(()->new ResourceNotFoundException("User not found exception"));
 //        delete user image first before deleting user
         String imageName=user.getImageName();
@@ -122,7 +133,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Cacheable
     public UserDto getUserById(String userId) {
+        logger.info("UserService::getUserById() connecting to database!!");
         User user = userRepository.findById(userId).orElseThrow(()->new ResourceNotFoundException("User not found"));
         UserDto userById = entityToDto(user);
         return userById;
@@ -136,7 +149,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Cacheable
     public PageableResponse<UserDto> getAllUsers(int pageNumber, int pageSize, String sortBy, String sortDir) {
+        logger.info("UserService::getAllUsers() connecting to database!!");
 //        ternary operator
         Sort sort = (sortDir.equalsIgnoreCase("desc"))?(Sort.by(sortBy).descending()):(Sort.by(sortBy).ascending());
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);

@@ -15,6 +15,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -31,6 +35,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@CacheConfig(cacheNames = "products")
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
@@ -47,7 +52,9 @@ public class ProductServiceImpl implements ProductService {
 
     private Logger logger= LoggerFactory.getLogger(ProductServiceImpl.class);
     @Override
+    @CachePut(key = "#productDto.productId")
     public ProductDto create(ProductDto productDto) {
+        logger.info("ProductService::create() connecting to database!!");
 //        generate product id
         String productId= UUID.randomUUID().toString();
         productDto.setProductId(productId);
@@ -60,7 +67,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @CachePut(key = "#productId")
     public ProductDto update(ProductDto productDto, String productId) {
+        logger.info("ProductService::update() connecting to database!!");
         Product product = productRepository.findById(productId).orElseThrow(()-> new ResourceNotFoundException("product not found with given id!!"));
         product.setTitle(productDto.getTitle());
         product.setDescription(productDto.getDescription());
@@ -81,7 +90,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @CacheEvict(key = "#productId")
     public void delete(String productId) {
+        logger.info("ProductService::delete() connecting to database!!");
         Product product = productRepository.findById(productId).orElseThrow(()-> new ResourceNotFoundException("product not found with given id!!"));
 
 //        delete product image first before deleting product
@@ -102,13 +113,17 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Cacheable(key = "#productId")
     public ProductDto getProductById(String productId) {
+        logger.info("ProductService::getProductById() connecting to database!!");
         Product product = productRepository.findById(productId).orElseThrow(()-> new ResourceNotFoundException("product not found with given id!!"));
         return modelMapper.map(product, ProductDto.class);
     }
 
     @Override
+    @Cacheable
     public PageableResponse<ProductDto> getAllProduct(int pageNumber, int pageSize, String sortBy, String sortDir) {
+        logger.info("ProductService::getAllProduct() connecting to database!!");
         Sort sort=(sortDir.equalsIgnoreCase("desc"))?(Sort.by(sortBy).descending()):(Sort.by(sortBy).ascending());
         Pageable pageable= PageRequest.of(pageNumber,pageSize,sort);
         Page<Product> page = productRepository.findAll(pageable);
